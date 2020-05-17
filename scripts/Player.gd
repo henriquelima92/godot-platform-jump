@@ -53,7 +53,8 @@ func _process(delta):
 	_check_boundaries()
 
 func die():
-	get_tree().reload_current_scene()
+	$"/root/PlayerData".save_highscore(score)
+	$"/root/LevelManager".change_scene("Menu")
 
 func jump():
 	if jumping:
