@@ -45,3 +45,8 @@ func _spawn_platform():
 	
 
 
+
+
+func _on_Player_just_jumped():
+	for counter in range(3):
+		_spawn_platform()

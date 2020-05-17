@@ -23,3 +23,4 @@ position = Vector2( 532.83, 1179.82 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 252.2, 656.629 )
+[connection signal="just_jumped" from="Player" to="." method="_on_Player_just_jumped"]
