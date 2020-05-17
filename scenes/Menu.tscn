@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://background/bg_layer1.png" type="Texture" id=1]
 [ext_resource path="res://background/bg_layer2.png" type="Texture" id=2]
 [ext_resource path="res://background/bg_layer3.png" type="Texture" id=3]
 [ext_resource path="res://background/bg_layer4.png" type="Texture" id=4]
 [ext_resource path="res://fonts/akaDylan.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
@@ -445,6 +446,7 @@ WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 
 [node name="Menu" type="Node"]
+script = ExtResource( 6 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 147.126, 647.354 )
@@ -519,3 +521,4 @@ text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
