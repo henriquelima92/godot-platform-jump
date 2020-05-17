@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/GrassPlatform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,16 @@
 [ext_resource path="res://scenes/GrassPlatformSmall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/GrassPlatformBreak.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/MovingGrassPlatform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fonts/akaDylan.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://background/bg_layer1.png" type="Texture" id=8]
+[ext_resource path="res://background/bg_layer2.png" type="Texture" id=9]
+[ext_resource path="res://background/bg_layer3.png" type="Texture" id=10]
+[ext_resource path="res://background/bg_layer4.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+outline_color = Color( 1, 0.992157, 0.0313726, 1 )
+font_data = ExtResource( 7 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -26,4 +36,43 @@ position = Vector2( 532.83, 1179.82 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 252.2, 656.629 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Score" type="RichTextLabel" parent="UI"]
+margin_left = 3.0
+margin_top = 4.0
+margin_right = 386.0
+margin_bottom = 200.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center] 0 
+[/center]"
+text = " 0 
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="Sprite" type="Sprite" parent="Background"]
+position = Vector2( 107.852, 419.423 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="Background"]
+position = Vector2( 106.265, 419.423 )
+texture = ExtResource( 9 )
+
+[node name="Sprite3" type="Sprite" parent="Background"]
+position = Vector2( 107.852, 419.423 )
+texture = ExtResource( 10 )
+
+[node name="Sprite4" type="Sprite" parent="Background"]
+position = Vector2( 107.852, 419.423 )
+texture = ExtResource( 11 )
 [connection signal="just_jumped" from="Player" to="." method="_on_Player_just_jumped"]
